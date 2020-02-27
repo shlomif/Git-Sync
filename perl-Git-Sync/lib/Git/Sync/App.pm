@@ -9,6 +9,8 @@ use Git::Sync ();
 
 sub run
 {
+    die "must start with sync" if ( shift(@ARGV) ne "sync" );
+
     my $remote = shift(@ARGV)
         or die "no remote specified";
 
@@ -36,7 +38,7 @@ Git::Sync::App - cmd line app to sync a git repo
 
 =head1 SYNOPSIS
 
-    perl -MGit::Sync::App -e 'Git::Sync::App->new->run;' -- "o" "master"
+    perl -MGit::Sync::App -e 'Git::Sync::App->new->run;' -- "sync" "o" "master"
 
 =head1 METHODS
 
